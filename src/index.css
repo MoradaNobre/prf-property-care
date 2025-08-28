@@ -142,12 +142,12 @@ All colors MUST be HSL.
 @layer components {
   /* Modern Glassmorphism Effects */
   .glass-card {
-    @apply bg-white/5 backdrop-blur-xl border border-white/10;
+    @apply bg-background/5 backdrop-blur-xl border border-border/10;
     box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.15);
   }
   
   .glass-nav {
-    @apply bg-white/3 backdrop-blur-2xl border-b border-white/5;
+    @apply bg-background/5 backdrop-blur-2xl border-b border-border/5;
   }
   
   /* Modern Hover Effects */
@@ -181,7 +181,7 @@ All colors MUST be HSL.
   .btn-modern {
     @apply bg-gradient-to-r from-primary to-accent text-white rounded-xl px-6 py-3 font-medium;
     @apply hover:shadow-lg hover:scale-105 transition-all duration-300;
-    @apply backdrop-blur-sm border border-white/10;
+    @apply backdrop-blur-sm border border-border/10;
   }
 }
 
