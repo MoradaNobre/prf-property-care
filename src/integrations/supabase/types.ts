@@ -115,6 +115,7 @@ export type Database = {
           nome_unidade: string
           situacao: Database["public"]["Enums"]["property_situation_enum"]
           tipo_imovel: Database["public"]["Enums"]["property_type_enum"]
+          tipo_unidade: string | null
           unidade_gestora: string
           updated_at: string
           vida_util_estimada: number | null
@@ -135,6 +136,7 @@ export type Database = {
           nome_unidade: string
           situacao: Database["public"]["Enums"]["property_situation_enum"]
           tipo_imovel: Database["public"]["Enums"]["property_type_enum"]
+          tipo_unidade?: string | null
           unidade_gestora: string
           updated_at?: string
           vida_util_estimada?: number | null
@@ -155,6 +157,7 @@ export type Database = {
           nome_unidade?: string
           situacao?: Database["public"]["Enums"]["property_situation_enum"]
           tipo_imovel?: Database["public"]["Enums"]["property_type_enum"]
+          tipo_unidade?: string | null
           unidade_gestora?: string
           updated_at?: string
           vida_util_estimada?: number | null
@@ -163,6 +166,7 @@ export type Database = {
       }
       users: {
         Row: {
+          auth_user_id: string | null
           created_at: string
           email: string
           id: number
@@ -172,6 +176,7 @@ export type Database = {
           username: string
         }
         Insert: {
+          auth_user_id?: string | null
           created_at?: string
           email: string
           id?: number
@@ -181,6 +186,7 @@ export type Database = {
           username: string
         }
         Update: {
+          auth_user_id?: string | null
           created_at?: string
           email?: string
           id?: number
