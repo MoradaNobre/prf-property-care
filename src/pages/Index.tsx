@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { supabase } from '@/integrations/supabase/client';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
@@ -15,6 +16,7 @@ import {
 import { useToast } from '@/hooks/use-toast';
 
 export default function Index() {
+  const navigate = useNavigate();
   const [stats, setStats] = useState({
     properties: 0,
     maintenanceRequests: 0,
@@ -56,6 +58,14 @@ export default function Index() {
     }
   };
 
+  const handleNewMaintenanceRequest = () => {
+    navigate('/maintenance');
+    toast({
+      title: "Redirecionando...",
+      description: "Indo para a página de manutenções.",
+    });
+  };
+
   if (loading) {
     return (
       <div className="glass-card p-8 rounded-lg text-center">
@@ -78,7 +88,10 @@ export default function Index() {
         <p className="text-muted-foreground text-lg mb-6 max-w-2xl mx-auto">
           Controle centralizado da manutenção dos imóveis da Polícia Rodoviária Federal
         </p>
-        <Button className="btn-modern text-lg px-8 py-3">
+        <Button 
+          onClick={handleNewMaintenanceRequest}
+          className="btn-modern text-lg px-8 py-3 hover-lift"
+        >
           <Wrench className="w-5 h-5 mr-2" />
           Nova Solicitação de Manutenção
         </Button>
@@ -146,7 +159,10 @@ export default function Index() {
           </CardHeader>
           <CardContent>
             <p className="text-muted-foreground mb-4">Visualizar e gerenciar todos os imóveis da PRF</p>
-            <Button className="w-full bg-primary hover:bg-primary/90 text-primary-foreground">
+            <Button 
+              onClick={() => navigate('/properties')}
+              className="w-full bg-primary hover:bg-primary/90 text-primary-foreground hover-lift"
+            >
               Acessar Imóveis
             </Button>
           </CardContent>
@@ -161,7 +177,10 @@ export default function Index() {
           </CardHeader>
           <CardContent>
             <p className="text-muted-foreground mb-4">Acompanhar status das manutenções</p>
-            <Button className="w-full bg-primary hover:bg-primary/90 text-primary-foreground">
+            <Button 
+              onClick={() => navigate('/maintenance')}
+              className="w-full bg-primary hover:bg-primary/90 text-primary-foreground hover-lift"
+            >
               Ver Manutenções
             </Button>
           </CardContent>
@@ -176,7 +195,15 @@ export default function Index() {
           </CardHeader>
           <CardContent>
             <p className="text-muted-foreground mb-4">Gerar relatórios e análises</p>
-            <Button className="w-full bg-primary hover:bg-primary/90 text-primary-foreground">
+            <Button 
+              onClick={() => {
+                toast({
+                  title: "Em desenvolvimento",
+                  description: "A funcionalidade de relatórios será implementada em breve.",
+                });
+              }}
+              className="w-full bg-primary hover:bg-primary/90 text-primary-foreground hover-lift"
+            >
               Ver Relatórios
             </Button>
           </CardContent>
