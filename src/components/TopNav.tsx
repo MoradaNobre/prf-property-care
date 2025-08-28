@@ -4,11 +4,13 @@ import {
   DropdownMenu, 
   DropdownMenuContent, 
   DropdownMenuItem, 
-  DropdownMenuTrigger 
+  DropdownMenuTrigger,
+  DropdownMenuSeparator 
 } from '@/components/ui/dropdown-menu';
 import { SidebarTrigger } from '@/components/ui/sidebar';
 import { useAuth } from '@/hooks/useAuth';
 import { Avatar, AvatarFallback } from '@/components/ui/avatar';
+import { ThemeToggle } from '@/components/ThemeToggle';
 
 export function TopNav() {
   const { user, signOut } = useAuth();
@@ -21,18 +23,21 @@ export function TopNav() {
   };
 
   return (
-    <header className="h-16 glass-nav border-b border-white/10 flex items-center justify-between px-6">
+    <header className="h-16 glass-nav border-b border-border/50 flex items-center justify-between px-6">
       <div className="flex items-center gap-4">
-        <SidebarTrigger className="text-white hover:bg-white/10" />
-        <h2 className="text-white font-semibold">Sistema de Gestão de Manutenção Predial</h2>
+        <SidebarTrigger className="text-foreground hover:bg-accent/10" />
+        <h2 className="text-foreground font-semibold">Sistema de Gestão de Manutenção Predial</h2>
       </div>
 
       <div className="flex items-center gap-4">
+        {/* Theme Toggle */}
+        <ThemeToggle />
+
         {/* Notifications */}
         <Button 
           variant="ghost" 
           size="sm"
-          className="text-white/80 hover:text-white hover:bg-white/10 relative"
+          className="text-foreground/80 hover:text-foreground hover:bg-accent/10 relative"
         >
           <Bell className="w-5 h-5" />
           <span className="absolute -top-1 -right-1 w-3 h-3 bg-accent rounded-full text-xs flex items-center justify-center text-accent-foreground">
@@ -45,10 +50,10 @@ export function TopNav() {
           <DropdownMenuTrigger asChild>
             <Button 
               variant="ghost" 
-              className="flex items-center gap-2 text-white/80 hover:text-white hover:bg-white/10"
+              className="flex items-center gap-2 text-foreground/80 hover:text-foreground hover:bg-accent/10"
             >
               <Avatar className="w-8 h-8">
-                <AvatarFallback className="bg-white/20 text-white">
+                <AvatarFallback className="bg-primary text-primary-foreground">
                   {getUserInitials()}
                 </AvatarFallback>
               </Avatar>
@@ -62,9 +67,11 @@ export function TopNav() {
               Meu Perfil
             </DropdownMenuItem>
             
+            <DropdownMenuSeparator />
+            
             <DropdownMenuItem 
               onClick={signOut}
-              className="flex items-center gap-2 text-destructive"
+              className="flex items-center gap-2 text-destructive focus:text-destructive"
             >
               <LogOut className="w-4 h-4" />
               Sair do Sistema

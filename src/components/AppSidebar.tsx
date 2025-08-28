@@ -77,24 +77,24 @@ export function AppSidebar() {
   const getNavClassName = (path: string) => {
     const baseClasses = "w-full justify-start transition-all duration-200";
     if (isActive(path)) {
-      return `${baseClasses} bg-secondary/20 text-secondary border-r-2 border-secondary`;
+      return `${baseClasses} bg-primary/10 text-primary border-r-2 border-primary`;
     }
-    return `${baseClasses} text-white/80 hover:text-white hover:bg-white/10`;
+    return `${baseClasses} text-sidebar-foreground hover:text-sidebar-primary hover:bg-accent/50`;
   };
 
   return (
-    <Sidebar className={`${collapsed ? 'w-14' : 'w-64'} glass-nav border-r border-white/10`}>
+    <Sidebar className={`${collapsed ? 'w-14' : 'w-64'} glass-nav border-r border-border/50`}>
       <SidebarContent className="p-0">
         {/* Logo Section */}
-        <div className="p-4 border-b border-white/10">
+        <div className="p-4 border-b border-border/50">
           <div className="flex items-center gap-3">
-            <div className="w-8 h-8 bg-white/20 rounded-lg flex items-center justify-center">
-              <Shield className="w-5 h-5 text-white" />
+            <div className="w-8 h-8 bg-primary/20 rounded-lg flex items-center justify-center">
+              <Shield className="w-5 h-5 text-primary" />
             </div>
             {!collapsed && (
               <div>
-                <h1 className="text-white font-bold text-lg">PRF</h1>
-                <p className="text-white/60 text-xs">Gestão Predial</p>
+                <h1 className="text-foreground font-bold text-lg">PRF</h1>
+                <p className="text-muted-foreground text-xs">Gestão Predial</p>
               </div>
             )}
           </div>
@@ -103,7 +103,7 @@ export function AppSidebar() {
         {/* Main Navigation */}
         <SidebarGroup>
           {!collapsed && (
-            <SidebarGroupLabel className="text-white/60 text-xs uppercase tracking-wider px-4 py-2">
+            <SidebarGroupLabel className="text-muted-foreground text-xs uppercase tracking-wider px-4 py-2">
               Principal
             </SidebarGroupLabel>
           )}
@@ -130,7 +130,7 @@ export function AppSidebar() {
         {/* Admin Section */}
         <SidebarGroup>
           {!collapsed && (
-            <SidebarGroupLabel className="text-white/60 text-xs uppercase tracking-wider px-4 py-2">
+            <SidebarGroupLabel className="text-muted-foreground text-xs uppercase tracking-wider px-4 py-2">
               Administração
             </SidebarGroupLabel>
           )}

@@ -37,19 +37,19 @@ export default function Auth() {
 
   return (
     <div className="min-h-screen bg-gradient-hero flex items-center justify-center p-4">
-      <div className="absolute inset-0 bg-black/20"></div>
+      <div className="absolute inset-0 bg-background/10 dark:bg-background/20"></div>
       
-      <Card className="w-full max-w-md glass-card border-white/20 relative z-10">
+      <Card className="w-full max-w-md glass-card border-border/20 relative z-10">
         <CardHeader className="text-center">
-          <div className="mx-auto w-16 h-16 bg-white/20 rounded-full flex items-center justify-center mb-4 animate-pulse-glow">
-            <Shield className="w-8 h-8 text-white" />
+          <div className="mx-auto w-16 h-16 bg-primary/20 rounded-full flex items-center justify-center mb-4 animate-pulse-glow">
+            <Shield className="w-8 h-8 text-primary" />
           </div>
           
-          <CardTitle className="text-2xl font-bold text-white">
+          <CardTitle className="text-2xl font-bold text-foreground">
             {isLogin ? 'Entrar no Sistema' : 'Criar Conta'}
           </CardTitle>
           
-          <CardDescription className="text-white/80">
+          <CardDescription className="text-muted-foreground">
             Sistema de Gestão de Manutenção Predial - PRF
           </CardDescription>
         </CardHeader>
@@ -59,22 +59,22 @@ export default function Auth() {
             {!isLogin && (
               <>
                 <div className="space-y-2">
-                  <Label htmlFor="username" className="text-white">Nome de Usuário</Label>
+                  <Label htmlFor="username" className="text-foreground">Nome de Usuário</Label>
                   <Input
                     id="username"
                     type="text"
                     value={username}
                     onChange={(e) => setUsername(e.target.value)}
                     required={!isLogin}
-                    className="bg-white/10 border-white/20 text-white placeholder:text-white/60"
+                    className="bg-background/50 border-border/50 text-foreground placeholder:text-muted-foreground"
                     placeholder="Seu nome de usuário"
                   />
                 </div>
 
                 <div className="space-y-2">
-                  <Label htmlFor="role" className="text-white">Tipo de Usuário</Label>
+                  <Label htmlFor="role" className="text-foreground">Tipo de Usuário</Label>
                   <Select value={role} onValueChange={setRole} required={!isLogin}>
-                    <SelectTrigger className="bg-white/10 border-white/20 text-white">
+                    <SelectTrigger className="bg-background/50 border-border/50 text-foreground">
                       <SelectValue placeholder="Selecione o tipo de usuário" />
                     </SelectTrigger>
                     <SelectContent>
@@ -109,34 +109,34 @@ export default function Auth() {
             )}
 
             <div className="space-y-2">
-              <Label htmlFor="email" className="text-white">Email</Label>
+              <Label htmlFor="email" className="text-foreground">Email</Label>
               <Input
                 id="email"
                 type="email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 required
-                className="bg-white/10 border-white/20 text-white placeholder:text-white/60"
+                className="bg-background/50 border-border/50 text-foreground placeholder:text-muted-foreground"
                 placeholder="seu@email.com"
               />
             </div>
 
             <div className="space-y-2">
-              <Label htmlFor="password" className="text-white">Senha</Label>
+              <Label htmlFor="password" className="text-foreground">Senha</Label>
               <Input
                 id="password"
                 type="password"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 required
-                className="bg-white/10 border-white/20 text-white placeholder:text-white/60"
+                className="bg-background/50 border-border/50 text-foreground placeholder:text-muted-foreground"
                 placeholder="Sua senha"
               />
             </div>
 
             <Button 
               type="submit" 
-              className="w-full bg-accent hover:bg-accent/90 text-accent-foreground font-semibold hover-lift"
+              className="w-full btn-modern font-semibold hover-lift"
               disabled={loading}
             >
               {loading ? 'Processando...' : (isLogin ? 'Entrar' : 'Criar Conta')}
@@ -147,7 +147,7 @@ export default function Auth() {
                 type="button"
                 variant="ghost"
                 onClick={() => setIsLogin(!isLogin)}
-                className="text-white/80 hover:text-white hover:bg-white/10"
+                className="text-muted-foreground hover:text-foreground hover:bg-accent/10"
               >
                 {isLogin ? 'Não tem uma conta? Criar conta' : 'Já tem uma conta? Fazer login'}
               </Button>

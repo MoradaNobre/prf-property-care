@@ -11,8 +11,8 @@ export function Layout() {
     return (
       <div className="min-h-screen bg-gradient-hero flex items-center justify-center">
         <div className="glass-card p-8 rounded-lg">
-          <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-white mx-auto"></div>
-          <p className="text-white mt-4">Carregando...</p>
+          <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-primary mx-auto"></div>
+          <p className="text-foreground mt-4">Carregando...</p>
         </div>
       </div>
     );
@@ -29,7 +29,7 @@ export function Layout() {
           <AppSidebar />
           <div className="flex-1 flex flex-col">
             <TopNav />
-            <main className="flex-1 p-6">
+            <main className="flex-1 p-6 bg-background/50">
               <Outlet />
             </main>
           </div>
