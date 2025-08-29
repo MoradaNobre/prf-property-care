@@ -8,7 +8,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@
 import { useAuth } from '@/hooks/useAuth';
 import { Shield, Building2, Users } from 'lucide-react';
 
-export default function Auth() {
+function Auth() {
   const [isLogin, setIsLogin] = useState(true);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -158,3 +158,5 @@ export default function Auth() {
     </div>
   );
 }
+
+export default Auth;

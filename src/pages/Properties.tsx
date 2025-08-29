@@ -27,7 +27,7 @@ interface Property {
   coordenadas?: string;
 }
 
-export default function Properties() {
+function Properties() {
   const [properties, setProperties] = useState<Property[]>([]);
   const [loading, setLoading] = useState(true);
   const [searchTerm, setSearchTerm] = useState('');
@@ -239,3 +239,5 @@ export default function Properties() {
     </div>
   );
 }
+
+export default Properties;
